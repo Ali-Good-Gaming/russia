@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интерактивная карта субъектов Российской Федерации</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <div class="logo-text">
+            <h1>Карта России</h1>
+            <p>Интерактивная карта субъектов РФ</p>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="#" class="nav-link active">
+            <i class="fas fa-home"></i>
+            <span>Главная</span>
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-info-circle"></i>
+            <span>О проекте</span>
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-database"></i>
+            <span>Данные</span>
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-envelope"></i>
+            <span>Контакты</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Search Section -->
+      <div class="search-section">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Поиск субъекта РФ..." id="searchInput">
+          <div class="search-results" id="searchResults"></div>
+        </div>
+      </div>
+
+      <!-- Content Layout -->
+      <div class="content-layout">
+        <!-- Map Section -->
+        <div class="map-section">
+          <div class="map-card">
+            <div class="map-header">
+              <h2>Карта субъектов Российской Федерации</h2>
+              <div class="map-controls">
+                <button class="btn btn-outline" id="resetMap">
+                  <i class="fas fa-undo"></i>
+                  Сбросить
+                </button>
+                <button class="btn btn-outline" id="fullscreenMap">
+                  <i class="fas fa-expand"></i>
+                  Полный экран
+                </button>
+              </div>
+            </div>
+            <div class="map-container">
+              <div class="map-wrapper" id="mapWrapper">
+                <!-- SVG карта будет вставлена сюда -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="info-panel">
+          <div class="info-header">
+            <div class="info-icon">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <h3>Информация о регионе</h3>
+          </div>
+          
+          <div class="info-content" id="infoContent">
+            <div class="empty-state">
+              <i class="fas fa-map-pin"></i>
+              <h4>Выберите регион на карте</h4>
+              <p>Кликните на любой субъект РФ для получения подробной информации</p>
+            </div>
+          </div>
+
+          <!-- Statistics -->
+          <div class="stats-section">
+            <h4>Статистика</h4>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value" id="totalRegions">85</div>
+                <div class="stat-label">Субъектов РФ</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="selectedRegion">-</div>
+                <div class="stat-label">Выбранный регион</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Region List -->
+          <div class="regions-section">
+            <h4>Список регионов</h4>
+            <div class="regions-list" id="regionsList">
+              <!-- Регионы будут добавлены через JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <p>&copy; 2024 Интерактивная карта России. Все права защищены.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Политика конфиденциальности</a>
+          <a href="#" class="footer-link">Условия использования</a>
+          <a href="#" class="footer-link">Поддержка</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tooltip -->
+  <div class="tooltip" id="tooltip">
+    <div class="tooltip-content">
+      <div class="tooltip-title"></div>
+      <div class="tooltip-flag"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
